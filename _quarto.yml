@@ -4,7 +4,7 @@ project:
 book:
   title: "Template Quarto Book"
   author: "Jane Doe"
-  date: "`r Sys.time())`"
+  date: "07-11-2022"
   chapters:
     - index.qmd
     - chap1.qmd
@@ -12,9 +12,9 @@ book:
     - summary.qmd
     - references.qmd
 local: Florianópolis
-date_year: "`r lubridate::year(Sys.time())`"
-date_month: 'Março'
-date_day: '31'
+date_year: "2022"
+date_month: 'Novembro'
+date_day: '7'
 institution: 'Universidade Federal de Santa Catarina'
 inst_short: 'UFSC'
 division: 'CTC - CENTRO TECNOLÓGICO'
@@ -66,8 +66,8 @@ thanks: |
   | Em especial ao meu orientador, pela paciência.
   | E a minha querida esposa pela compreensão.
 format:
-  html:
-    theme: cosmo
+#  html:
+#    theme: cosmo
   pdf:
     template: template.tex
 
