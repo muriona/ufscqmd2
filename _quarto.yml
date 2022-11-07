@@ -1,0 +1,75 @@
+project:
+  type: book
+
+book:
+  title: "Template Quarto Book"
+  author: "Jane Doe"
+  date: "`r Sys.time())`"
+  chapters:
+    - index.qmd
+    - chap1.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+local: Florianópolis
+date_year: "`r lubridate::year(Sys.time())`"
+date_month: 'Março'
+date_day: '31'
+institution: 'Universidade Federal de Santa Catarina'
+inst_short: 'UFSC'
+division: 'CTC - CENTRO TECNOLÓGICO'
+coordinator: Beltrano da Silva
+advisor: Mauricio Uriona Maldonado
+# If you have more two advisors, un-silence line 7
+#altadvisor: 'Your Other Advisor'
+examiner:
+- title: Prof.
+  name: Examinador 1
+  degree: Dr.
+  institution: Universidade Federal de Santa Catarina
+  inst_short: UFSC
+- title: Prof.
+  name: Examinador 2
+  degree: Dr.
+  institution: Fédération Internationale des Géomètres
+  inst_short: FIG
+department: |
+  Departamento de Engenharia de Produção e Sistemas
+degree: 'Graduado em Engenharia de Produção Mecânica/Elétrica/Civil'
+level: 'graduação'
+doc_type: 'Trabalho de Conclusão de Curso'
+title: 'TÍTULO'
+subtitle: 'SUBTÍTULO'
+abstract: "No resumo são ressaltados o objetivo da pesquisa, o método utilizado, as discussões e os resultados com destaque apenas para os pontos principais. O resumo deve ser significativo, composto de uma sequência de frases concisas, afirmativas, e não de uma enumeração de tópicos. Não deve conter citações. Deve usar o verbo na voz ativa e na terceira pessoa do singular. O texto do resumo deve ser digitado, em um único bloco, sem espaço de parágrafo. O espaçamento entre linhas é simples e o tamanho da fonte é 12. Abaixo do resumo, informar as palavras-chave (palavras ou expressões significativas retiradas do texto) ou, termos retirados de thesaurus da área. Deve conter de 150 a 500 palavras. O resumo é elaborado de acordo com a NBR 6028."
+palavras-chave: [Palavra-chave 1, Palavra-chave 2]
+foreignabstract: "Resumo traduzido para outros idiomas, neste caso, inglês. Segue o formato do resumo feito na língua vernácula. As palavras-chave traduzidas, versão em língua estrangeira, são colocadas abaixo do texto precedidas pela expressão Keywords, separadas por ponto."
+# If you'd rather include the preliminary content in files instead of inline
+# like below, use a command like that for the abstract above.  Note that a tab 
+# is needed on the line after the `|`.
+keyword: [Keyword 1, Keyword 2]
+epigrafe: |
+  | "Eppur si muove!"  
+  | (Galileu Galilei, 1633)
+
+bibliography: references.bib
+
+csl: csl/ufsc.csl
+link-citations: yes
+#####Dedicatorias e agradecimentos
+dedication: |
+  Este trabalho é dedicado aos meus colegas de classe e aos meus queridos pais.
+thanks: |
+  | Gostaria de agradecer sinceramente a todos os que colaboraram à execução 
+  | deste trabalho.
+  | Aos colegas da UFSC.
+  | Aos professores do PPGTG.
+  | Em especial ao meu orientador, pela paciência.
+  | E a minha querida esposa pela compreensão.
+format:
+  html:
+    theme: cosmo
+  pdf:
+    template: template.tex
+
+editor: visual
+

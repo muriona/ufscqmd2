@@ -1,0 +1,101 @@
+# Desenvolvimento {#desenvolvimento}
+
+Deve-se inserir texto entre as seções.
+
+## Exposição do tema ou matéria}
+
+É a parte principal e mais extensa do trabalho. Deve apresentar a fundamentação teórica, a metodologia, os resultados e a discussão. Divide-se em seções e subseções conforme a NBR 6024 [-@NBR6024:2012] - ver figura @fig-imagem.
+
+Quanto à sua estrutura e projeto gráfico, segue as recomendações da \gls{ABNT} para preparação de trabalhos acadêmicos, a NBR 14724 [-@NBR14724:2011].
+
+\bcenter
+
+![Papel da Universidade na Sociedade](images/anscombe-1.png){#fig-imagem}
+
+Fonte: Universidade Federal do Paraná (1996). \ecenter
+
+### Formatação do texto
+
+No que diz respeito à estrutura do trabalho, recomenda-se que:
+
+a.  o texto deve ser justificado, digitado em cor preta, podendo utilizar outras cores somente para as ilustrações;
+b.  utilizar papel branco ou reciclado para impressão;
+c.  os elementos pré-textuais devem iniciar no anverso da folha, com exceção da ficha catalográfica ou ficha de identificação da obra;
+d.  os elementos textuais e pós-textuais devem ser digitados no anverso e verso das folhas, quando o trabalho for impresso. As seções primárias devem começar sempre em páginas ímpares, quando o trabalho for impresso. Deixar um espaço entre o título da seção/subseção e o texto e entre o texto e o título da subseção.
+
+No Quadro 1 estão as especificações para a formatação do texto.
+
+### As ilustrações
+
+Independentemente do tipo de ilustração (quadro, desenho, figura, fotografia, mapa, entre outros), a sua identificação aparece na parte superior, precedida da palavra designativa.
+
+Após a ilustração, na parte inferior, indicar a fonte consultada (elemento obrigatório, mesmo que seja produção do próprio autor), legenda, notas e outras informações necessárias à sua compreensão (se houver). A ilustração deve ser citada no texto e inserida o mais próximo possível do texto a que se refere.
+
+#### Equações e fórmulas
+
+As equações e fórmulas devem ser destacadas no texto para facilitar a leitura. Para numerá-las, usar algarismos arábicos entre parênteses e alinhados à direita. Pode-se adotar uma entrelinha maior do que a usada no texto [@NBR14724:2011].
+
+Exemplos, equação @eq-1.
+
+$$
+\begin{equation}
+  C = 2 \pi r
+\end{equation}
+$$ {#eq-1}
+
+##### Exemplo tabela
+
+De acordo com @ibge1993, tabela é uma forma não discursiva de apresentar informações em que os números representam a informação central. Ver tabela 1
+
+Fonte: @ibge2016 \ecenter
+
+As tabelas podem ser escritas em código latex, como acima.
+
+Porém, é recomendável utilizar o \proglang{R} para produzí-las, através dos pacotes \pkg{knitr} e \pkg{kableExtra}. Para isto é necessário inserir os dados no \proglang{R}, como abaixo, ou através da leitura de um arquivo de dados.
+
+```{r}
+dados <- data.frame(Cidade = c("Ji-Paraná (RO)", "Parintins (AM)", 
+                               "Boa Vista (RR)", "Bragança (PA)"),
+                    Populacao = c(116610, 102033, 298215, 113227),
+                    Pop_Brasil = c(116610, 102033, 298215, 113227),
+                    PIB = c(1.686, 0.675, 4.823, 0.452),
+                    Empresas = c(2734, 634, 4852, 654),
+                    UL = c(3082, 683, 5187, 686))
+```
+
+O código de geração da tabela 1 pode ser visto no Apêndice xxx.
+
+```{r }
+library(knitr)
+library(kableExtra)
+
+kable(dados, format = "latex", booktabs = TRUE,
+      caption = "Médias concentrações urbanas 2010-2011.",
+      col.names = c("Nome", "Total", "No Brasil", "Produto Interno Bruto - PIB", 
+                    "Número de Empresas", "Número de unidades locais"),
+      format.args = list(decimal.mark = ",", big.mark = " ")
+    ) %>%
+  kable_styling(latex_options = "striped") %>% 
+  add_header_above(c("Média Concentração Urbana", "População" = 2), 
+                   bold = TRUE) %>% 
+  column_spec(4:6, width = "1.5cm") %>% 
+  row_spec(0, bold = TRUE) %>% 
+  footnote(general = c("PIB em bilhões de reais.", "Fonte: IBGE (2016)"),
+           general_title = "Notas:")
+```
+
+Outra maneira, ainda, para tabelas mais simples, como a tabela \@ref(tab:inher), é inserí-las no formato Pandoc (ver a [documentação do pandoc](https://pandoc.org/MANUAL.html#tables) para mais detalhes).
+
+|        Factors        | Correlation between Parents & Child | Inherited |
+|:---------------------:|:-----------------------------------:|:---------:|
+|       Education       |                -0.49                |    Yes    |
+| Socio-Economic Status |                0.28                 |  Slight   |
+|        Income         |                0.08                 |    No     |
+|      Family Size      |                0.18                 |  Slight   |
+| Occupational Prestige |                0.21                 |  Slight   |
+
+: Correlation of Inheritance Factors for Parents and Child
+
+\bcenter
+
+Fonte: do Autor. \ecenter
